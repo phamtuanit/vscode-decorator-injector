@@ -3,7 +3,7 @@
 	"displayName": "HTML Injector",
 	"publisher": "tuanpham",
 	"description": "This extension help you load html file then inject to where you configured.",
-	"version": "1.1.0",
+	"version": "1.1.1",
 	"author": {
 		"name": "Tuân Phạm"
 	  },
@@ -61,14 +61,28 @@
 		],
 		"commands": [
 			{
-				"command": "extension.injectTemplate",
+				"command": "injector.injectTemplate",
 				"title": "Vue - Inject Template"
 			},
 			{
-				"command": "extension.removeInjectionMark",
+				"command": "injector.removeInjectionMark",
 				"title": "Vue - Remove Template Injection Mark"
 			}
-		],		
+		],	
+		"keybindings": [
+		  {
+			"command": "injector.injectTemplate",
+			"key": "ctrl+alt+i",
+			"mac": "cmd+alt+i",
+			"when": "editorTextFocus"
+		  },		  
+		  {
+			"command": "injector.removeInjectionMark",
+			"key": "ctrl+alt+r",
+			"mac": "cmd+alt+r",
+			"when": "editorTextFocus"
+		  }
+		],	
 		"snippets": [
 			{
 				"language": "javascript",

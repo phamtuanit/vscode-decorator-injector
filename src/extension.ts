@@ -5,11 +5,11 @@ export function activate(context: vscode.ExtensionContext) {
 	console.log('Congratulations, your extension "Vue Injector" is now active!');
 	const templateInjector = new VueTemplateInjection();
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.injectTemplate', () => {
+	context.subscriptions.push(vscode.commands.registerCommand('injector.injectTemplate', () => {
 		templateInjector.injectVueTemplate();
 	}));
 
-	context.subscriptions.push(vscode.commands.registerCommand('extension.removeInjectionMark', () => {
+	context.subscriptions.push(vscode.commands.registerCommand('injector.removeInjectionMark', () => {
 		templateInjector.removeInjectionMark();
 	}));
 }

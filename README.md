@@ -91,7 +91,15 @@ let myTemplate = `<p>
 
 ## Release Notes
 
-This is initial version for internal usage.
+N/A
+
+### 1.1.1
+
+Support default binding
+
+### 1.1.0
+
+Support Safe mode
 
 ### 1.0.0
 
