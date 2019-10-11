@@ -1,0 +1,98 @@
+{
+	"name": "htmlinjector",
+	"displayName": "HTML Injector",
+	"publisher": "tuanpham",
+	"description": "This extension help you load html file then inject to where you configured.",
+	"version": "1.1.0",
+	"author": {
+		"name": "Tuân Phạm"
+	  },
+	"engines": {
+		"vscode": "^1.38.0"
+	},
+	"icon": "images/icon.png",
+	"categories": [
+		"Other", "Snippets"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"configuration": [
+			{
+				"title": "HTML Injector",
+				"properties": {
+					"injectionMark.detectMode" : {
+						"type": "string","enum": [
+							"safe",
+							"flex"
+						],
+						"default": "safe",
+						"description": "Injection mode. If SAFE is enabled:\n- HTML file name should be the same JS file. Ex: my-component.js / my-component.html.\n- Regex should be string. Ex: '// Define HTML template for Vue'."
+					},
+					"injectionMark.regex" : {
+						"type": "string",
+						"default": "// Define template for Vue",
+						"description": "Regex to lookup Injection Mark in Flex mode (@InjectTemplate=) or raw-string for Safe mode."
+					},
+					"injectionMark.defaultParamName" : {
+						"type": "string",
+						"default": "templateStr",
+						"description": "Name of variable which will be assigned HTML template. This is very importance for Safe mode."
+					},
+					"injectionMark.defaultMark" : {
+						"type": "string",
+						"default": "// Define template for Vue",
+						"description": "Default Injection Mark.\nFlex mode: @InjectTemplate={paramName: \"{$1}\", location: \"/my-component.html\"}\n-> {$1} will be replaced by 'defaultParamName'\n\nSafe mode: It should be the same as Regex"
+					},
+					"injectionMark.decoration.valid" : {
+						"type": "string",
+						"default": "{\"backgroundColor\": \"#f6f078\", \"color\": \"#2a1a5e\", \"borderRadius\": \"1px\"}",
+						"description": "Style for VALID Injection Mark in JSON format"
+					},
+					"injectionMark.decoration.invalid" : {
+						"type": "string",
+						"default": "{\"backgroundColor\": \"#f0134d\", \"color\": \"#ecfcff\", \"borderRadius\": \"1px\"}",
+						"description": "Style for INVALID Injection Mark in JSON format"
+					}
+				}
+			}
+		],
+		"commands": [
+			{
+				"command": "extension.injectTemplate",
+				"title": "Vue - Inject Template"
+			},
+			{
+				"command": "extension.removeInjectionMark",
+				"title": "Vue - Remove Template Injection Mark"
+			}
+		],		
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./snippets.json"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.38.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"typescript": "^3.3.1",
+		"tslint": "^5.12.1",
+		"vscode-test": "^1.2.0"
+	},
+	"license": "(MIT OR Apache-2.0)"
+}

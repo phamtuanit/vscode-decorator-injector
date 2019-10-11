@@ -1,0 +1,18 @@
+{
+	"Insert Template Injection Mark": [
+		{
+			"prefix": ["@inject-template", "inject-template", "v-inject-template"],
+			"body": [
+				"// @InjectTemplate={paramName: \"myTemplate\", location: \"/$1.html\"} | TODO: Don't forget to delete this before releasing"
+			],
+			"description": "Insert template injection mark for Fex mode."
+		},
+		{
+			"prefix": ["inject-template-safe", "v-inject-template-safe"],
+			"body": [
+				"// Define template for Vue"
+			],
+			"description": "Insert template injection mark for Safe mode."
+		}
+	]
+}
